@@ -1,4 +1,4 @@
-<script src="/instatec_pub/js/inicio.js"></script>
+<script src="/fe_pub/js/inicio.js"></script>
 <div class="row row-bienvenida">
 	<div class="col-12">
 		<h1 class="text-center"><i class="fa fa-fw fa-table"></i> Dashboard</h1>

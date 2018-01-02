@@ -1,73 +1,112 @@
 <?php if($loggedin){ ?>
 <!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-		<a class="navbar-brand" href="/">Instatec CR</a>
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-		  <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-		    <li class="nav-item" >
-		      <a class="nav-link" href="/">
-		        <i class="fa fa-fw fa-dashboard"></i>
-		        <span class="nav-link-text">Inicio</span>
-		      </a>
-		    </li>
-		    <li class="nav-item" >
-		      <a class="nav-link" href="/proyectos">
-		        <i class="fa fa-fw fa-area-chart"></i>
-		        <span class="nav-link-text">Proyectos</span>
-		      </a>
-		    </li>
-		    <?php if(isset($rol_id) && $rol_id=='1'){ ?>
-			    <li class="nav-item" >
-			      <a class="nav-link" href="/clientes">
-			        <i class="fa fa-fw fa-handshake-o"></i>
-			        <span class="nav-link-text">Clientes</span>
-			      </a>
-			    </li>
-			    <li class="nav-item" >
-			      <a class="nav-link" href="/proveedores">
-			        <i class="fa fa-fw fa-shopping-bag"></i>
-			        <span class="nav-link-text">Proveedores</span>
-			      </a>
-			    </li>
-			    <li class="nav-item" >
-			      <a class="nav-link" href="/reportes">
-			        <i class="fa fa-fw fa-table"></i>
-			        <span class="nav-link-text">Reportes</span>
-			      </a>
-			    </li>
-		    <?php } ?>
 
-		  </ul>
-		  <ul class="navbar-nav sidenav-toggler">
-		    <li class="nav-item">
-		      <a class="nav-link text-center" id="sidenavToggler">
-		        <i class="fa fa-fw fa-angle-left"></i>
-		      </a>
-		    </li>
-		  </ul>
-		  <ul class="navbar-nav ml-auto">		    
-		    <li class="nav-item">
-		      <a class="nav-link" href="/logout">
-		        <i class="fa fa-fw fa-sign-out"></i>Cerrar sesión</a>
-		    </li>
-		  </ul>
-		</div>
+	<nav class="navbar navbar-inverse" role="navigation">
+	    <div class="container-fluid">
+	        <div class="navbar-header">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ip-navbar-collapse">
+	                <span class="sr-only">Toggle navigation</span>
+	                Menú &nbsp; <i class="fa fa-bars"></i>
+	            </button>
+	        </div>
+
+	        <div class="collapse navbar-collapse" id="ip-navbar-collapse">
+	            <ul class="nav navbar-nav">
+	                <li><a href="/" class="hidden-md">Inicio</a>
+	                    <a href="/" class="visible-md-inline-block"><i class="fa fa-dashboard"></i></a>
+	                </li>
+
+	                <li class="dropdown">
+	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                        <i class="fa fa-caret-down"></i> &nbsp;
+	                        <span class="hidden-md">Clientes</span>
+	                        <i class="visible-md-inline fa fa-users"></i>
+	                    </a>
+	                    <ul class="dropdown-menu">
+	                        <li><a href="/clientes/agregar-cliente">Agregar cliente</a></li>
+	                        <li><a href="/clientes/">Ver clientes</a></li>
+	                    </ul>
+	                </li>
+
+	                <li class="dropdown">
+	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                        <i class="fa fa-caret-down"></i> &nbsp;
+	                        <span class="hidden-md">Facturas</span>
+	                        <i class="visible-md-inline fa fa-file-text"></i>
+	                    </a>
+	                    <ul class="dropdown-menu">
+	                        <li><a href="/facturas/agregar-factura" class="create-invoice">Crear factura</a></li>
+	                        <li><a href="/facturas">Ver facturas</a></li>
+	                    </ul>
+	                </li>
+              
+
+	                <li class="dropdown">
+	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                        <i class="fa fa-caret-down"></i> &nbsp;
+	                        <span class="hidden-md">Productos</span>
+	                        <i class="visible-md-inline fa fa-database"></i>
+	                    </a>
+	                    <ul class="dropdown-menu">
+	                        <li><a href="/productos/agregar-producto">Agregar producto</a></li>
+	                        <li><a href="/productos/">Ver productos</a></li>
+	                    </ul>
+	                </li>
+
+	                <li class="dropdown">
+	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                        <i class="fa fa-caret-down"></i> &nbsp;
+	                        <span class="hidden-md">Reportes</span>
+	                        <i class="visible-md-inline fa fa-bar-chart"></i>
+	                    </a>
+	                    <ul class="dropdown-menu">
+	                        <li><a href="/reportes/listado-facturas/">Reporte de facturas</a></li>
+	                        <li><a href="/reportes/ventas-por-cliente/">Ventas por cliente</a></li>
+	                        <li><a href="/reportes/ventas-por-ano/">Ventas por año</a></li>
+	                        <li><a href="/reportes/ventas-por-mes/">Ventas por mes</a></li>
+	                    </ul>
+	                </li>
+
+	            </ul>
+
+	           
+
+	            <ul class="nav navbar-nav navbar-right">
+	                
+
+	                <li class="dropdown">
+	                    <a href="#" class="tip icon dropdown-toggle" data-toggle="dropdown"
+	                       title="Configuración"
+	                       data-placement="bottom">
+	                        <i class="fa fa-cogs"></i>
+	                        <span class="visible-xs">&nbsp;Configuración</span>
+	                    </a>
+	                    <ul class="dropdown-menu">
+	                        <li><a href="/configuraciones/empresa/">Editar datos de la empresa</a></li>	                        
+	                        <li><a href="/configuraciones/usuarios/">Gestionar usuarios</a></li>
+	                        <li><a href="/configuraciones/folios/">Configuar folios</a></li>
+	                        
+	                    </ul>
+	                </li>
+	                <li>
+	                    <a href="<?php echo site_url('/usuarios/editar-perfil'); ?>"
+	                       class="tip icon" data-placement="bottom"
+	                       title="">
+	                        <i class="fa fa-user"></i>
+	                        <span class="visible-xs">&nbsp;
+	                           Perfil</span>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="<?php echo site_url('/logout'); ?>"
+	                       class="tip icon logout" data-placement="bottom"
+	                       title="Cerrar sesión">
+	                        <i class="fa fa-power-off"></i>
+	                        <span class="visible-xs">&nbsp; Cerrar sesión</span>
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
 	</nav>
-	<!--<a class="menu-toggle icon-menu" data-toggle="collapse" href="#menu" aria-expanded="false" aria-controls="collapseExample"></a>
-	<nav id="menu" class="collapse">
-		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="/dashboard">Inicio</a></li>
-			<li class="nav-item"><a class="nav-link" href="/proyectos">Proyectos</a></li>
-			<?php if(isset($rol_id) && $rol_id=='1'){ ?>
-				<li class="nav-item"><a class="nav-link" href="/clientes">Clientes</a></li>
-				<li class="nav-item"><a class="nav-link" href="/proveedores">Proveedores</a></li>
-				<li class="nav-item"><a class="nav-link" href="/reportes">Reportes</a></li>
-			<?php } ?>
-			<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesión</a></li>
-		</ul>
-	</nav>-->
-
 <?php } ?>

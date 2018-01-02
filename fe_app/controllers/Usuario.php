@@ -14,11 +14,10 @@ class Usuario extends CI_Controller {
 		$this->load->model('m_usuario');
 		$this->load->library('form_validation');
 
-
+		
 	}
 
 	public function login()	{
-
 		$loggedin = $this->m_general->conectado();
 		$this->data['loggedin'] = $loggedin;
 
@@ -44,8 +43,25 @@ class Usuario extends CI_Controller {
 			$this->form_validation->set_rules($config);
 			if($this->form_validation->run() == TRUE){
 				//Consulta si las contraeñas coinciden
-				$datos_user = $this->m_usuario->getUserLogin($usuario);
-				if($datos_user!==false){
+				//$datos_user = $this->m_usuario->getUserLogin($usuario);
+				$client_ws = new SoapClient("http://factura.azurewebsites.net/Service1.svc?wsdl");
+				$datos_user = $client_ws->login(array('user'=>$usuario, 'password'=>$password));
+				//exit(var_export($datos_user));
+				if(isset($datos_user) && $datos_user!=null){
+					if($datos_user->LoginResult==true){
+						
+						$this->session->set_userdata('loggedin', TRUE);
+						$this->session->set_userdata('usuario_id', 1);
+						$this->session->set_userdata('rol_id', 1);
+						//$this->m_usuario->registroBitacoraIngreso($datos_user->usuario_id);*/
+						redirect('/', 'refresh');
+							
+					}else{
+						$contrasena_incorrecta = true;
+					}				
+					
+				}
+				/*if($datos_user!==false){
 					if(password_verify($password, $datos_user->password)){
 						if($datos_user->estado_id==1){
 							$this->session->set_userdata('loggedin', TRUE);
@@ -59,7 +75,7 @@ class Usuario extends CI_Controller {
 					}else{
 						$contrasena_incorrecta = true;
 					}				
-				}
+				}*/
 				
 			}
 		}

@@ -119,7 +119,7 @@ var myApp = angular.module('myApp', ['chart.js']);
 
         // Remove button click handler
         .on('click', '.removeButton', function() {
-            var $row    = $(this).parents('.form-group'),
+            var $row    = $(this).parents('.group-template'),
                 $option = $row.find('[name="'+$(this).data('campo')+'[]"]');
 
             // Remove element containing the option

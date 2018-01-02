@@ -1,4 +1,4 @@
-<script src="/instatec_pub/js/cliente.js"></script>
+<script src="/fe_pub/js/cliente.js"></script>
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
 	<li class="breadcrumb-item">

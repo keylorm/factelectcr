@@ -69,6 +69,17 @@ myApp.controller('clienteController', ['$scope','$log','$http', '$filter', funct
 	$scope.consultarClientes();
 }]);
 
+
+myApp.controller('agregarClienteController', ['$scope','$log','$http', '$filter', function($scope, $log, $http, $filter){
+	$scope.tipo_cliente = 'fisico';
+
+
+    $scope.cambio = function(){
+    	
+   		$log.log($scope.tipo_cliente);
+    }
+}]);
+
 /*(function($){
 	$(document).ready(function(){
 		$('.ajax-form').submit(function(e){

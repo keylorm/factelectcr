@@ -68,19 +68,31 @@ $route['clientes/editar-cliente/(:num)'] = 'cliente/editarCliente/$1';
 $route['clientes/remover-cliente/(:num)'] = 'cliente/removerCliente/$1';
 
 //Proveedores
-$route['proveedores'] = 'proveedor/index';
-$route['proveedores/agregar-proveedor'] = 'proveedor/agregarProveedor';
-$route['proveedores/ver-proveedor/(:num)'] = 'proveedor/verProveedor/$1';
-$route['proveedores/editar-proveedor/(:num)'] = 'proveedor/editarProveedor/$1';
-$route['proveedores/remover-proveedor/(:num)'] = 'proveedor/removerProveedor/$1';
-
-
-//Facturas
 $route['facturas'] = 'factura/index';
 $route['facturas/agregar-factura'] = 'factura/agregarFactura';
 $route['facturas/ver-factura/(:num)'] = 'factura/verFactura/$1';
 $route['facturas/editar-factura/(:num)'] = 'factura/editarFactura/$1';
 $route['facturas/remover-factura/(:num)'] = 'factura/removerFactura/$1';
+
+
+//Proyectos
+$route['proyectos'] = 'proyecto/index';
+$route['proyectos/agregar-proyecto'] = 'proyecto/agregarProyecto';
+$route['proyectos/ver-proyecto/(:num)'] = 'proyecto/verProyecto/$1';
+$route['proyectos/editar-proyecto/(:num)'] = 'proyecto/editarProyecto/$1';
+$route['proyectos/remover-proyecto/(:num)'] = 'proyecto/removerProyecto/$1';
+$route['proyectos/extensiones/(:num)'] = 'proyecto/verExtensionesProyecto/$1';
+$route['proyectos/extensiones/(:num)/agregar-extension'] = 'proyecto/agregarExtensionProyecto/$1';
+$route['proyectos/extensiones/(:num)/editar-extension/(:num)'] = 'proyecto/editarExtensionProyecto/$1/$2';
+$route['proyectos/gastos/(:num)'] = 'proyecto/verGastosProyecto/$1';
+$route['proyectos/gastos/(:num)/agregar-gasto'] = 'proyecto/agregarGastoProyecto/$1/';
+$route['proyectos/gastos/(:num)/editar-gasto/(:num)'] = 'proyecto/editarGastoProyecto/$1/$2';
+
+
+//Reportes
+$route['reportes'] = 'reporte/index';
+$route['reportes/proyecto-especifico'] = 'reporte/reporteProyectoEspecifico';
+$route['reportes/proyecto-especifico/(:num)'] = 'reporte/generarReporteProyectoEspecifico/$1';
 
 //$route['registro-admin'] = 'usuario/registro_admin';
 

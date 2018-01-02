@@ -1,25 +1,25 @@
 <div class="row">
-	<div class="col-12 col-md-3 col-lg-4 "></div>
-	<div class="col-12 col-md-6 col-lg-4">
-		<?php 
-			if(validation_errors()){ ?>
-	    		<div class="alert alert-danger alert-dismissable"><?php echo validation_errors(); ?></div>
-	    <?php 
-			} 
+	<div class="col-12 col-md-3  "></div>
+	<div class="col-12 col-md-6 ">
+		<div class="login-container" id="login">
+			<h1 class="">Iniciar sesión</h1>
+			<?php 
+				if(validation_errors()){ ?>
+		    		<div class="alert alert-danger alert-dismissable"><?php echo validation_errors(); ?></div>
+		    <?php 
+				} 
 
-			if(isset($msg)){
-				foreach ($msg as $kmsg => $vmsg) { ?>
-					<div class="alert alert-<?=$vmsg['tipo']?> alert-dismissable"><?=$vmsg['texto']?></div>
-				<?php
+				if(isset($msg)){
+					foreach ($msg as $kmsg => $vmsg) { ?>
+						<div class="alert alert-<?=$vmsg['tipo']?> alert-dismissable"><?=$vmsg['texto']?></div>
+					<?php
+					}
 				}
-			}
 
-	    ?>
-		<div class="login-container">
-			<h1 class="text-center">Bienvenido</h1>
+		    ?>
 			<form action="" method="post">
 				<div class="form-group">
-					<label for="usuario">Usuario</label>
+					<label for="usuario">Correo electrónico</label>
 					<input type="text" class="form-control" id="usuario" name="usuario" placeholder="">
 				</div>
 				<div class="form-group">
@@ -27,9 +27,12 @@
 					<input type="password" class="form-control" id="password" name="password" placeholder="">
 				</div>
 
-				<button type="submit" class="btn btn-primary">Ingresar</button>
+				<button type="submit" class="btn btn-primary"><i class="fa fa-unlock fa-margin"></i> Iniciar sesión</button>
+				<a href="<?php echo site_url('/recuperar-contraseña'); ?>" class="btn btn-default">
+	                He olvidado mi contraseña
+	            </a>
 			</form>
 		</div>
 	</div>
-	<div class="col-12 col-md-3 col-lg-4 "></div>
+	<div class="col-12 col-md-3  "></div>
 </div>
