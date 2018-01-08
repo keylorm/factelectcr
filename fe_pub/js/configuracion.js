@@ -13,11 +13,11 @@ myApp.controller('empresaController', ['$scope','$log','$http', '$filter', funct
 
 
 
-	$scope.filtrarCliente = function(){
-		$scope.consultarClientes();
+	$scope.filtrarEmpresa = function(){
+		$scope.consultarEmpresas();
 	};
 
-	$scope.consultarClientes = function(){
+	$scope.consultarEmpresas = function(){
 		$http({
 	        url: '/configuracion/consultaEmpresasAjax/',
 	        method: "POST",
@@ -81,5 +81,5 @@ myApp.controller('empresaController', ['$scope','$log','$http', '$filter', funct
 		}
 	}
 
-	$scope.consultarClientes();
+	$scope.consultarEmpresas();
 }]);

@@ -266,12 +266,13 @@ class Cliente extends CI_Controller {
 		$this->output->set_content_type('application/json');
 		$post_data = json_decode(file_get_contents("php://input"), true);
     	if($post_data!=null){
-    		if(isset($post_data['company_id'])){
-    			$parametros_ws_cliente['CompanyID'] = $post_data['company_id'];
+    		if(isset($post_data['filtros']['company_id'])){
+    			$parametros_ws_cliente['CompanyID'] = $post_data['filtros']['company_id'];
     		}
     	}
+    	
 		$client_ws = new SoapClient("http://factura.azurewebsites.net/Service1.svc?wsdl");			
-		$result = $client_ws->GetCustomers($parametros_ws_cliente));
+		$result = $client_ws->GetCustomers($parametros_ws_cliente);
 		//$result = $this->m_cliente->consultaAll($post_data);
 		die(json_encode($result->GetCustomersResult));
 	}

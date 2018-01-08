@@ -8,29 +8,33 @@ myApp.controller('clienteController', ['$scope','$log','$http', '$filter', funct
 	$scope.q = '';
 	$scope.loaded = false;
 	$scope.sindatos=false;
+	$scope.loadedcompany = false;
 
     $scope.currentPage = 0;	
 
 
 
 	$scope.filtrarCliente = function(){
+		$scope.loaded = false;
+		$scope.sindatos = false;
 		$scope.consultarClientes();
 	};
 
 	$scope.consultarClientes = function(){
+		filtroObject = {};
+		if($scope.company_id!=='all'){
+			filtroObject = {
+								filtros: {
+									company_id: $scope.company_id
+								}
+							};
+		}
 		$http({
 	        url: '/cliente/consultaClientesAjax/',
 	        method: "POST",
-	        /*data: {  filtros: { 
-									nombre_cliente: $scope.nombre_cliente, 
-									cedula_cliente: $scope.cedula_cliente, 
-									estado_cliente: $scope.estado_cliente
-								},
-								cantidad_mostrar: $scope.cantidad_mostrar,
-	    			},*/
+	        data: filtroObject,
 	    })
 		.then(function(result){
-			$log.log(result.data);
 			if(result.data.customer!==undefined){
 				if(result.data.customer.customer_id!==undefined){
 					$scope.clientes = {0: result.data.customer};
@@ -46,6 +50,31 @@ myApp.controller('clienteController', ['$scope','$log','$http', '$filter', funct
 			}
 			$scope.loaded = true;
 			$scope.calcularPaginas();
+		},function(result){
+			$log.error(result);
+		});
+	}
+
+	$scope.consultarEmpresas = function(){
+		$http({
+	        url: '/configuracion/consultaEmpresasAjax/',
+	        method: "POST",
+	        
+	    })
+		.then(function(result){
+			if(result.data.company!==undefined){
+				if(result.data.company.company_id!==undefined){
+					$scope.companies = {0: result.data.company};
+					$scope.total_rows = 1;
+					$scope.company_id='all';
+				}else{
+					$scope.companies = result.data.company;
+					$scope.total_rows = result.data.company.length;
+					$scope.company_id='all';
+				}
+				
+				$scope.loadedcompany = true;
+			}
 		},function(result){
 			$log.error(result);
 		});
@@ -81,6 +110,7 @@ myApp.controller('clienteController', ['$scope','$log','$http', '$filter', funct
 		}
 	}
 
+	$scope.consultarEmpresas();
 	$scope.consultarClientes();
 }]);
 

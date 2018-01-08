@@ -11,7 +11,7 @@
 		<div class="col-12 col-md-10"><h3 class=" text-center text-md-left"><i class="fa fa-fw fa-table"></i> Lista de clientes</h3></div>
 		<div class="col-12 col-md-2"><a class="btn btn-primary float-md-right mb-3 mr-md-3 mx-auto d-block d-md-inline-block" href="/clientes/agregar-cliente" role="button"><i class="fa fa-fw fa-plus-circle"></i> Agregar cliente</a></div>
 	</div>
-	<!--<div class="card">
+	<div class="card" ng-show="loadedcompany">
 		<div class="card-header anchor-class" data-toggle="collapse" data-target="#filtroContainer" aria-expanded="false" aria-controls="collapseExample">
 				<i class="fa fa-fw fa-filter"></i> Filtros <i class="fa float-right fa-plus-circle"></i>
         </div>
@@ -19,37 +19,23 @@
 			<div class="filtros">
 				<div class="row">
 					<div class="form-group col-12 col-md-3">
-						<label for="nombre">Nombre de cliente</label>
-						<input type="text" name="nombre_cliente" class="form-control" id="nombre" aria-describedby="nombreHelp" ng-model="nombre_cliente">
+						<label for="nombre">Sociedad o Empresa interna</label>
+						<select name="company_id" class="form-control" id="company_id" ng-model="company_id">
+							<option value="all" selected="selected">Todas</option>
+							<option ng-repeat="company in companies" value="{{company.company_id}}">{{company.company_name}}</option>
+						</select>
 						</small>
 					</div>
-					<div class="form-group col-12 col-md-3">
-						<label for="cedula">Cédula del cliente</label>
-						<input type="text" name="cedula_cliente" class="form-control" id="cedula" aria-describedby="cedulaHelp" ng-model="cedula_cliente">
-					</div>
-					<div class="form-group col-12 col-md-3">
-						<label>Estado del cliente:</label>
-						<div class="form-check">
-							<label class="form-check-label">
-								<input class="form-check-input" type="radio" name="estado_cliente" id="estado1" ng-value="1" ng-model="estado_cliente" >
-								Activo
-							</label>
-						</div>
-						<div class="form-check">
-							<label class="form-check-label">
-								<input class="form-check-input" type="radio" name="estado_cliente" id="estado2" ng-model="estado_cliente" ng-value="0">
-								Inactivo
-							</label>
-						</div>
-					</div>
+					
 					<div class="col-12 col-md-3">
-						<button  class="btn btn-primary form-submit" ng-click="filtrarCliente()">Filtrar</button>
+
+						<button  class="btn btn-primary form-submit mt-4" ng-click="filtrarCliente()">Filtrar</button>
 					</div>
 					
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div> 
 	<div class="table-espaciado" >
 		<div ng-hide="loaded">
 		  <img class="text-center mx-auto mt-3 mb-3 float-none d-block" src="/fe_pub/images/ajax-loader.gif" alt="" />
