@@ -36,4 +36,59 @@ class General extends CI_Controller{
 		$this->data['title'] = 'Acceso denegado';
 		$this->load->view($this->vista_master, $this->data);
 	}
+
+
+	// Ajax calls
+
+	public function consultaPaisesAjax(){
+		//Se usa esta forma para obtener los post de angular. Si se usa jquery se descomenta la otra forma		
+		//$post_data = $this->input->post(NULL, TRUE);
+		
+		$result = $this->m_general->consultaPaises();
+		die(json_encode($result));
+    	
+	}
+
+	public function consultaProvinciasAjax(){
+		//Se usa esta forma para obtener los post de angular. Si se usa jquery se descomenta la otra forma		
+		//$post_data = $this->input->post(NULL, TRUE);
+		
+		$result = $this->m_general->consultaProvincias();
+		die(json_encode($result));
+    	
+	}
+
+	public function consultaCantonesAjax(){
+		//Se usa esta forma para obtener los post de angular. Si se usa jquery se descomenta la otra forma		
+		//$post_data = $this->input->post(NULL, TRUE);
+		$this->output->set_content_type('application/json');
+		$post_data = json_decode(file_get_contents("php://input"), true);
+    	if($post_data!=null){
+    		$result = $this->m_general->consultaCantonesProvincia($post_data);
+    		exit(var_export($result));
+			die(json_encode($result));
+    	}
+	}
+
+	public function consultaDistritosAjax(){
+		//Se usa esta forma para obtener los post de angular. Si se usa jquery se descomenta la otra forma		
+		//$post_data = $this->input->post(NULL, TRUE);
+		$this->output->set_content_type('application/json');
+		$post_data = json_decode(file_get_contents("php://input"), true);
+    	if($post_data!=null){
+    		$result = $this->m_general->consultaDistritosCantones($post_data);
+			die(json_encode($result));
+    	}
+	}
+
+	public function consultaBarriosAjax(){
+		//Se usa esta forma para obtener los post de angular. Si se usa jquery se descomenta la otra forma		
+		//$post_data = $this->input->post(NULL, TRUE);
+		$this->output->set_content_type('application/json');
+		$post_data = json_decode(file_get_contents("php://input"), true);
+    	if($post_data!=null){
+    		$result = $this->m_general->consultaBarriosDistritos($post_data);
+			die(json_encode($result));
+    	}
+	}
 }

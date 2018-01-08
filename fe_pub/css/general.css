@@ -66,6 +66,7 @@ table.table a:not(.btn):hover{
     text-decoration: none;
 }
 
-.d-none {
-    display: none!important;
+
+.navbar-inverse .navbar-nav .show .dropdown-menu>li>a {
+    color: rgba(255,255,255,0.75);
 }

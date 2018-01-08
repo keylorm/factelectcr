@@ -92,7 +92,7 @@ var myApp = angular.module('myApp', ['chart.js']);
 			}
 		});
 		if(msj_error!=''){
-			$(form).before('<div class="alert-form-validation alert alert-danger">'+msj_error+'</div>');
+			$(form).find('#headerbar').after('<div class="alert-form-validation alert alert-danger">'+msj_error+'</div>');
 			
 			return false;
 		}else{

@@ -17,9 +17,9 @@ class M_Proyecto extends CI_Model {
 			$t_proyecto_gasto_mano_obra = 'proyecto_gasto_mano_obra',
 			$t_cliente = 'cliente',
 			$t_proveedor = 'proveedor',
-			$t_distrito = 'distrito',
-			$t_canton = 'canton',
-			$t_provincia = 'provincia',
+			$t_distrito = 'ubicacion_distrito',
+			$t_canton = 'ubicacion_canton',
+			$t_provincia = 'ubicacion_provincia',
 			$t_moneda = 'moneda',
 			$rol_id,
 			$usuario_id;

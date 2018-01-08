@@ -112,7 +112,7 @@
 					<div class="form-group col-12 col-md-6">
 						<label for="canton_id">Cantón:</label>
 						<select class="form-control" name="canton_id" id="canton_id" aria-describedby="cantonHelp" ng-model="canton_id" ng-click="getDistritos()">
-							<option ng-repeat="canton in cantones" value="{{canton.canton_id}}" required="required">
+							<option ng-repeat="canton in cantones" value="{{canton.canton_id}}">
 								{{canton.canton}}
 							</option>
 						</select>

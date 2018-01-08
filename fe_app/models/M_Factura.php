@@ -8,9 +8,9 @@ class M_Factura extends CI_Model {
 			$t_proyecto_tipo_cambio = 'proyecto_tipo_cambio',
 			$t_proyecto_valor_oferta_tipo = 'proyecto_valor_oferta_tipo',
 			$t_cliente = 'cliente',
-			$t_distrito = 'distrito',
-			$t_canton = 'canton',
-			$t_provincia = 'provincia',
+			$t_distrito = 'ubicacion_distrito',
+			$t_canton = 'ubicacion_canton',
+			$t_provincia = 'ubicacion_provincia',
 			$rol_id,
 			$usuario_id;
 

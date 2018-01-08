@@ -75,18 +75,11 @@ $route['facturas/editar-factura/(:num)'] = 'factura/editarFactura/$1';
 $route['facturas/remover-factura/(:num)'] = 'factura/removerFactura/$1';
 
 
-//Proyectos
-$route['proyectos'] = 'proyecto/index';
-$route['proyectos/agregar-proyecto'] = 'proyecto/agregarProyecto';
-$route['proyectos/ver-proyecto/(:num)'] = 'proyecto/verProyecto/$1';
-$route['proyectos/editar-proyecto/(:num)'] = 'proyecto/editarProyecto/$1';
-$route['proyectos/remover-proyecto/(:num)'] = 'proyecto/removerProyecto/$1';
-$route['proyectos/extensiones/(:num)'] = 'proyecto/verExtensionesProyecto/$1';
-$route['proyectos/extensiones/(:num)/agregar-extension'] = 'proyecto/agregarExtensionProyecto/$1';
-$route['proyectos/extensiones/(:num)/editar-extension/(:num)'] = 'proyecto/editarExtensionProyecto/$1/$2';
-$route['proyectos/gastos/(:num)'] = 'proyecto/verGastosProyecto/$1';
-$route['proyectos/gastos/(:num)/agregar-gasto'] = 'proyecto/agregarGastoProyecto/$1/';
-$route['proyectos/gastos/(:num)/editar-gasto/(:num)'] = 'proyecto/editarGastoProyecto/$1/$2';
+//Configuracion
+$route['configuracion/folios'] = 'configuracion/gestionFolios';
+$route['configuracion/empresas'] = 'configuracion/gestionEmpresas';
+$route['configuracion/empresas/agregar-empresa'] = 'configuracion/agregarEmpresa';
+
 
 
 //Reportes

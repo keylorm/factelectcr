@@ -27,8 +27,8 @@
 					<input type="password" class="form-control" id="password" name="password" placeholder="">
 				</div>
 
-				<button type="submit" class="btn btn-primary"><i class="fa fa-unlock fa-margin"></i> Iniciar sesión</button>
-				<a href="<?php echo site_url('/recuperar-contraseña'); ?>" class="btn btn-default">
+				<button type="submit" class="btn btn-primary mb-3"><i class="fa fa-unlock fa-margin"></i> Iniciar sesión</button>
+				<a href="<?php echo site_url('/recuperar-contraseña'); ?>" class="btn btn-default mb-3">
 	                He olvidado mi contraseña
 	            </a>
 			</form>

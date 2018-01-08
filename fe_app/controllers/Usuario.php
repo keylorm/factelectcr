@@ -45,13 +45,16 @@ class Usuario extends CI_Controller {
 				//Consulta si las contraeñas coinciden
 				//$datos_user = $this->m_usuario->getUserLogin($usuario);
 				$client_ws = new SoapClient("http://factura.azurewebsites.net/Service1.svc?wsdl");
-				$datos_user = $client_ws->login(array('user'=>$usuario, 'password'=>$password));
-				//exit(var_export($datos_user));
+				$login_result = $client_ws->Login(array('user'=>$usuario, 'password'=>$password));
+				//exit(var_export($login_result));
+				$datos_user = json_decode($login_result->LoginResult);
 				if(isset($datos_user) && $datos_user!=null){
-					if($datos_user->LoginResult==true){
+					if($datos_user->loginStatus==true){
 						
 						$this->session->set_userdata('loggedin', TRUE);
-						$this->session->set_userdata('usuario_id', 1);
+						$this->session->set_userdata('usuario_id', $datos_user->internalCustomerID);
+						$this->session->set_userdata('internalcustomer_id', $datos_user->internalCustomerID);
+						$this->session->set_userdata('company_id', $datos_user->companyID);
 						$this->session->set_userdata('rol_id', 1);
 						//$this->m_usuario->registroBitacoraIngreso($datos_user->usuario_id);*/
 						redirect('/', 'refresh');
